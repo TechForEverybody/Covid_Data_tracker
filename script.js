@@ -19,7 +19,7 @@ async function GetData() {
         let totalData=""
         
         result.statewise.forEach(element => {
-            let deltaactive=element.deltaconfirmed-element.deltarecovered
+            let deltaactive=element.deltaconfirmed-element.deltarecovered-element.deltadeaths
             if (element.state!=="Total") {
             data=data+`<tr>  <td>${element.state}</td> 
             <td class="totalconfirmed"><div class="newcounts">
