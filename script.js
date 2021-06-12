@@ -2,7 +2,7 @@ async function GetData() {
     try {
         let response=await fetch('https://api.covid19india.org/data.json')
         let result=await response.json()
-        console.log(result);
+        // console.log(result);
         // document.write(result.statewise[1].state)
         let data=` <table class="scrollableTable">
         <tr>
@@ -97,7 +97,7 @@ async function GetData() {
             }
         });
         data=data+" </table>"
-        console.log(data);
+        // console.log(data);
         let totaldetails=document.getElementById('totaldetails')
         totaldetails.innerHTML=totalData
         let root=document.getElementById('root')
