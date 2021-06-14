@@ -6,6 +6,15 @@
     box-sizing: border-box;
     outline: none;
     text-decoration: none;
+    list-style: nonex;
+}
+.author{
+    position: fixed;
+    bottom: 0;
+    right: 0px;
+    background-color: aqua;
+    padding: 5px;
+    font-size: 18px;
 }
 a{
     color:white;
@@ -54,7 +63,7 @@ table{
     margin:20px auto;
     text-align: center;
     background-color: #ecf0f1;
-    font-size: 22px;
+    font-size: 25px;
 }
 th{
     border: 1px solid gray;
@@ -87,8 +96,6 @@ tr:nth-child(even){
     text-align: center;
 }
 
-
-
 #initialData{
     display: flex;
     flex-wrap: wrap;
@@ -108,7 +115,6 @@ tr:nth-child(even){
     align-items: center;
     font-size: 20px;
     transition: all 0.5s;
-
 }
 .totaldata:hover{
     transform: scale(1.2);
@@ -140,3 +146,105 @@ tr:nth-child(even){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#fromstartingData{
+    background-color: #c7ecee;
+}
+
+#fromstartingcontainer {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 100px;
+
+}
+#fromstartingcontainer::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    background-color: aqua;
+}
+.content{
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.content h2{
+    text-align: center;
+    margin: 10px 0px 40px 0px;
+}
+.content ul{
+    margin: 10px;
+}
+.content ul li{
+    margin-left: 40px;
+}
+.leftdata{
+    width:30%;
+    position: relative;
+    left: 15%;
+    margin: 10px 0;
+}
+.leftdata .content::before{
+    content: "";
+    position: absolute;
+    width: 30px ;
+    height: 30px;
+    right: -15px;
+    top: 30px;
+    transform: rotate(45deg);
+    background-color: #fff;
+}
+.rightdata{
+    width:30%;
+    position: relative;
+    left: 56%;
+    margin: -50px 0;
+}
+.rightdata .content::before{
+    content: "";
+    position: absolute;
+    width: 30px ;
+    height: 30px;
+    left: -15px;
+    top: 30px;
+    transform: rotate(45deg);
+    background-color: #fff;
+}

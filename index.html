@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,49 @@
     <title>Covid 19 Data thacker</title>
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
-
     <style>
-
+        /* #homepage {
+            display: none;
+        } */
+        #OverallData {
+            display: none;
+        }
+        #fromstartingData {
+            display: none;
+        }
+        #about {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
-    
     <header class="header">
-        <div class="title"><a href="./index.html">Covid 19 India Statistics</a></div>
+        <div class="title" onclick="changePage('homepage')">Covid 19 India Statistics</div>
         <div class="navbar">
-            <a href="./index.html" >State Wise</a><a href="">From Starting</a><a href="">Overall Data</a>
+            <a onclick="changePage('fromstartingData')">Timeline</a>
+            <a onclick="changePage('OverallData')">Overall Data</a>
+            <a onclick="changePage('about')">About</a>
         </div>
     </header>
-    <div id="totaldetails">
+    <div id="homepage">
+        <div id="totaldetails"></div>
+        <div id="root"></div>
     </div>
-    <div id="root"></div>
+    <div id="fromstartingData">
+        <h1 style="text-align: center;padding:10px">Covid-19 India Timeline</h1>
+        <div id="fromstartingcontainer"></div>
+    </div>
+    <div id="OverallData">
+        Overall data
+    </div>
+    <div id="about">
+        About
+    </div>
     <footer>
         All Rights are Reserved
     </footer>
+    <div class="author">Created By : Shivkumar Chauhan</div>
 </body>
+
 </html>
