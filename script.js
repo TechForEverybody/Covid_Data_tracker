@@ -105,7 +105,7 @@ async function GetData() {
 
         let timelineData=result.cases_time_series
         timelineData.reverse()
-        console.log(timelineData);
+        // console.log(timelineData);
         let startingfromfirstData=""
         timelineData.forEach((element,index)=>{
             if (index%2===0) {
@@ -196,7 +196,7 @@ function changePage(object) {
     let fromstartingData = document.getElementById('fromstartingData')
     let OverallData = document.getElementById('OverallData')
     let about = document.getElementById('about')
-    console.log(object);
+    // console.log(object);
     if (object === 'homepage') {
         homepage.style.display = 'block'
         fromstartingData.style.display = 'none'
