@@ -1,6 +1,7 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +9,73 @@
     text-decoration: none;
     list-style: none;
 }
-.author{
+
+#homepage {
+    display: none;
+}
+
+#OverallData {
+    display: none;
+    padding: 20px;
+    background: linear-gradient(135deg, #81ecec, #fd79a8, #eccc68, #ffffff);
+}
+
+#fromstartingData {
+    display: none;
+}
+
+#about {
+    display: none;
+}
+
+#waiting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.loaderspinner {
+    margin: 20px;
+    width: 120px;
+    height: 120px;
+    border: 10px solid rgb(195, 195, 255);
+    border-radius: 50%;
+    animation: changecolor 5s ease-in-out 0s infinite;
+}
+
+@keyframes changecolor {
+    0% {
+        background-color: aqua;
+    }
+
+    20% {
+        background-color: blueviolet;
+    }
+
+    40% {
+        background-color: coral;
+    }
+
+    60% {
+        background-color: aquamarine;
+    }
+
+    80% {
+        background-color: burlywood;
+    }
+
+    100% {
+        background-color: darkred;
+    }
+}
+
+#menubar {
+    display: none;
+}
+
+.author {
     position: fixed;
     bottom: 0;
     right: 0px;
@@ -16,12 +83,14 @@
     padding: 5px;
     font-size: 18px;
 }
-a{
-    color:white;
+
+a {
+    color: white;
     cursor: pointer;
 }
-.header{
-    background-color:#2f3542;
+
+.header {
+    background-color: #2f3542;
     color: white;
     font-size: 50px;
     padding: 10px;
@@ -31,84 +100,110 @@ a{
     align-items: center;
 }
 
-.navbar{
+#hideNavbar {
+    display: none;
+}
+
+.navbar {
     display: flex;
     justify-content: space-evenly;
     font-size: 25px;
     height: 100%;
 }
-.navbar a{
+
+.navbar a {
     padding: 20px 30px;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     background-color: #000000;
 }
 
-footer{
-    background-color:#2f3542;
+.descliemer {
+    margin: 20px;
+}
+
+footer {
+    background-color: #2f3542;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
     text-align: center;
     font-size: 25px;
     padding: 10px;
 }
 
-#root{
+#root {
     overflow: auto;
-    white-space:nowrap ;
+    white-space: nowrap;
 }
 
-table{
+table {
     border-collapse: collapse;
     width: 96%;
-    margin:20px auto;
+    margin: 20px auto;
     text-align: center;
     background-color: #ecf0f1;
     font-size: 25px;
 }
-th{
+
+th {
     border: 1px solid gray;
     padding: 20px;
     font-weight: bolder;
 }
-td{
+
+td {
     border: 1px solid gray;
     padding: 15px;
 }
-tr:nth-child(even){
+
+tr:nth-child(even) {
     background-color: #dfe6e9;
 }
-.recovered{
+
+.recovered {
     color: green;
 }
-.active{
+
+.active {
     color: blue;
 }
-.deaths{
+
+.deaths {
     color: gray;
 }
-.totalconfirmed{
+
+.totalconfirmed {
     color: red;
 }
-#totaldetails{
-    margin: 20px;
+
+#totaldetails {
+    padding: 20px 0;
 }
-.lastupdatedate{
+
+.lastupdatedate {
     text-align: center;
 }
 
-#initialData{
+#initialData {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 95%;
     margin: 10px auto;
 }
-.totaldata{
+
+.totaldata {
     border: 1px solid rgba(146, 146, 146, 0.219);
     border-radius: 10px;
     padding: 10px;
-    margin:20px 20px;
+    margin: 20px 20px;
     width: 250px;
     height: 200px;
     display: flex;
@@ -117,70 +212,42 @@ tr:nth-child(even){
     font-size: 20px;
     transition: all 0.5s;
 }
-.totaldata:hover{
+
+.totaldata:hover {
     transform: scale(1.2);
 }
 
-#initialData >.recovered:hover{
-    background-color:rgba(132, 255, 132, 0.219);
+#initialData>.recovered:hover {
+    background-color: rgba(132, 255, 132, 0.219);
 }
-#initialData >.totalconfirmed:hover{
-    background-color:rgba(255, 138, 138, 0.322);
+
+#initialData>.totalconfirmed:hover {
+    background-color: rgba(255, 138, 138, 0.322);
 }
-#initialData >.deaths:hover{
-    background-color:rgba(128, 128, 128, 0.245);
+
+#initialData>.deaths:hover {
+    background-color: rgba(128, 128, 128, 0.245);
 }
-#initialData >.active:hover{
-    background-color:#50a4f76e;
+
+#initialData>.active:hover {
+    background-color: #50a4f76e;
 }
-.counts
-{
+
+.counts {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
-.newcounts{
+
+.newcounts {
     font-size: 15px;
     margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#fromstartingData{
-    background-color: #c7ecee;
+#fromstartingData {
+    background: linear-gradient(45deg, aqua, red) fixed;
 }
 
 #fromstartingcontainer {
@@ -191,6 +258,7 @@ tr:nth-child(even){
     padding-bottom: 100px;
 
 }
+
 #fromstartingcontainer::before {
     content: "";
     position: absolute;
@@ -200,52 +268,378 @@ tr:nth-child(even){
     width: 10px;
     background-color: aqua;
 }
-.content{
+
+.content {
     border: 1px solid rgba(128, 128, 128, 0.308);
     border-radius: 20px;
     padding: 15px;
     background-color: #fff;
 }
 
-.content h2{
+.content h2 {
     text-align: center;
     margin: 10px 0px 40px 0px;
 }
-.content ul{
+
+.content ul {
     margin: 10px;
 }
-.content ul li{
+
+.content ul li {
     margin-left: 40px;
 }
-.leftdata{
-    width:30%;
+
+.leftdata {
+    width: 30%;
     position: relative;
     left: 15%;
     margin: 10px 0;
 }
-.leftdata .content::before{
+
+.leftdata .content::before {
     content: "";
     position: absolute;
-    width: 30px ;
+    width: 30px;
     height: 30px;
     right: -15px;
     top: 30px;
     transform: rotate(45deg);
     background-color: #fff;
 }
-.rightdata{
-    width:30%;
+
+.rightdata {
+    width: 30%;
     position: relative;
     left: 56%;
     margin: -50px 0;
 }
-.rightdata .content::before{
+
+.rightdata .content::before {
     content: "";
     position: absolute;
-    width: 30px ;
+    width: 30px;
     height: 30px;
     left: -15px;
     top: 30px;
     transform: rotate(45deg);
     background-color: #fff;
+}
+
+#maincontainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+}
+
+.card {
+    width: 300px;
+    height: 250px;
+    background: linear-gradient(-45deg, aqua, rgb(129, 75, 129));
+    padding: 10px;
+    margin: 40px;
+    transform: rotate(-3deg) skewX(7deg);
+    color: aliceblue;
+    transition: all 0.5s;
+}
+
+
+.card::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    left: -5px;
+    top: 2.5px;
+    transform: skewY(-45deg);
+    background: linear-gradient(-45deg, aqua, purple);
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: -2.8px;
+    bottom: -5px;
+    transform: skewX(-45deg);
+    background: linear-gradient(-45deg, aqua, purple);
+}
+
+.card h1 {
+    text-align: center;
+    font-size: 45px;
+}
+
+.card h3 {
+    font-size: 27px;
+    text-align: center;
+    color: rgb(113, 179, 113);
+}
+
+.card p {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.card:hover {
+    transform: scale(1.2) rotate(-3deg) skewX(7deg);
+}
+
+.resources {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resources h1 {
+    font-size: 50px;
+    margin: 30px;
+}
+
+.resources img {
+    margin: 30px;
+}
+
+@media (max-width:1100px) {
+
+    .header {
+        font-size: 25px;
+    }
+
+    .navbar {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 15px;
+    }
+
+    th {
+        padding: 15px;
+    }
+
+    td {
+        padding: 12px;
+    }
+
+    table .newcounts {
+        font-size: 10px;
+    }
+
+    img {
+        width: 80%;
+    }
+
+    #fromstartingcontainer {
+        width: 90%;
+    }
+
+    .leftdata {
+        width: 40%;
+        left: 5%;
+    }
+
+    .rightdata {
+        width: 40%;
+
+    }
+
+    #maincontainer {
+        padding: 50px 0px;
+    }
+
+    .card {
+        margin: 30px;
+    }
+}
+
+@media (max-width:600px) {
+
+    .author {
+        position: fixed;
+        bottom: 0;
+        right: 0px;
+        background-color: aqua;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    #menubar {
+        display: block;
+    }
+
+    .navbaroption {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        font-size: 25px;
+    }
+
+    .navbar {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        font-size: 25px;
+        background-color: #2f3542;
+        z-index: 10;
+    }
+
+    #hideNavbar {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 40px;
+    }
+
+    .navbar a {
+        text-align: center;
+    }
+
+    .totaldata {
+        margin: 15px 20px;
+        width: 200px;
+        height: 150px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th {
+        padding: 5px;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    table .newcounts {
+        font-size: 7px;
+    }
+
+    img {
+        width: 80%;
+    }
+
+    #fromstartingcontainer {
+        width: 98%;
+    }
+
+    .leftdata {
+        width: 40%;
+        left: 5%;
+    }
+
+    .rightdata {
+        width: 40%;
+
+    }
+
+    #fromstartingcontainer {
+        position: relative;
+        width: 95%;
+        margin: auto;
+        padding-top: 30px;
+        padding-bottom: 100px;
+    }
+
+    .descliemer {
+        font-size: 10px;
+        margin: 10px 20px;
+    }
+
+    #fromstartingcontainer::before {
+        margin-top: 30px;
+        left: 5%;
+    }
+
+    .content {
+        padding: 8px;
+    }
+
+    .content h2 {
+        margin: 10px 0px 20px 0px;
+    }
+
+    .content ul {
+        margin: 10px;
+    }
+
+    .content ul li {
+        margin-left: 35px;
+    }
+
+    .leftdata {
+        width: 75%;
+        left: 22%;
+        margin: 10px 0;
+    }
+
+    .leftdata .content::before {
+        left: -15px;
+    }
+
+    .rightdata {
+        width: 75%;
+        left: 22%;
+        margin: 10px 0;
+    }
+
+    .rightdata .content::before {
+        left: -15px;
+    }
+
+    #maincontainer {
+        padding: 25px 0px;
+    }
+
+    .card {
+        margin: 30px;
+        width: 230px;
+        height: 180px;
+
+    }
+
+    .card h1 {
+        font-size: 35px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 17px;
+    }
+
+    .card:hover {
+        transform: scale(1.2) rotate(-3deg) skewX(7deg);
+    }
+
+    .resources {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .resources h1 {
+        font-size: 35px;
+        margin: 25px;
+    }
+
+    .resources img {
+        margin: 15px;
+    }
 }

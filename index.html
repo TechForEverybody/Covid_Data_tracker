@@ -5,51 +5,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
     <title>Covid 19 Data thacker</title>
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
-    <style>
-        /* #homepage {
-            display: none;
-        } */
-        #OverallData {
-            display: none;
-        }
-        #fromstartingData {
-            display: none;
-        }
-        #about {
-            display: none;
-        }
-    </style>
+    <style></style>
+    <script></script>
 </head>
 
 <body>
     <header class="header">
-        <div class="title" onclick="changePage('homepage')">Covid 19 India Statistics</div>
-        <div class="navbar">
+        <div class="navbaroption">
+            <div class="title" onclick="changePage('homepage')">Covid 19 India Statistics</div>
+            <i id="menubar" onclick="toggleNavbar()" class="fas fa-bars"></i>
+        </div>
+        <div class="navbar" id="navbar">
+            <i id="hideNavbar" onclick="toggleNavbar()" class="fas fa-times"></i>
             <a onclick="changePage('fromstartingData')">Timeline</a>
-            <a onclick="changePage('OverallData')">Overall Data</a>
+            <a onclick="changePage('OverallData')">Vaccination</a>
             <a onclick="changePage('about')">About</a>
         </div>
     </header>
+    <div id="waiting">
+        <div class="loaderspinner"></div>
+        <div class="text">
+            Please Wait.....
+        </div>
+    </div>
     <div id="homepage">
         <div id="totaldetails"></div>
         <div id="root"></div>
+        <div class="resources">
+            <h1>Resources</h1>
+            <img src="./Covid19 ORG.PNG" alt="COVID-19-ORG">
+        </div>
     </div>
     <div id="fromstartingData">
         <h1 style="text-align: center;padding:10px">Covid-19 India Timeline</h1>
         <div id="fromstartingcontainer"></div>
     </div>
     <div id="OverallData">
-        Overall data
+        <div id="maindatacontainer"></div>
+        <div class="resources">
+            <h1>Resources</h1>
+            <img src="./PIB.PNG" alt="PIB">
+            <img src="./ICMR.PNG" alt="ICMR">
+        </div>
     </div>
     <div id="about">
         About
     </div>
     <footer>
-        All Rights are Reserved
+        <div class="descliemer">
+            Disclaimer : This Website is Created as a Project , We Have tried to Show Only correcty Information.
+            Developer Will Not Responsible For Any Information defect From Source
+        </div>
+        <div class="footer">
+            All Rights are Reserved
+        </div>
     </footer>
     <div class="author">Created By : Shivkumar Chauhan</div>
 </body>
