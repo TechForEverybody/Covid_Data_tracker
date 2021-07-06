@@ -254,7 +254,7 @@ async function GetData() {
 GetData()
 
 document.onkeydown = function(e) {
-    if (event.keyCode == 123) {
+    if (e.keyCode == 123) {
         return false;
     }
     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
@@ -338,11 +338,10 @@ setTimeout(() => {
     let homepage = document.getElementById('homepage')
     waiting.style.display = 'none'
     homepage.style.display='block'
-}, 1000);
+}, 1500);
 
 function Typename() {
     let i = 0;
-
     function writeName() {
         let name = "Shivkumar Chauhan"
         let nameplace = document.getElementById('namespace')
