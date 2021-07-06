@@ -193,14 +193,27 @@ async function GetData() {
         fromstartingcontainer.innerHTML = startingfromfirstData
 
         let testedData = result.tested.reverse()
-        let totalFirstDose = testedData[0].firstdoseadministered
-        let totalsecondDose = testedData[0].seconddoseadministered
         let totalcovidsamplesTested = testedData[0].totalsamplestested
-        let totalvaccineDoasesAdministred = testedData[0].totaldosesadministered
         let changeInSampleTested = testedData[0].totalsamplestested - testedData[1].totalsamplestested
-        let changeInfirstdose = testedData[0].firstdoseadministered - testedData[1].firstdoseadministered
-        let changeinSecondDose = testedData[0].seconddoseadministered - testedData[1].seconddoseadministered
-        let changeinTotalvaccinationdata = testedData[0].totaldosesadministered - testedData[1].totaldosesadministered
+
+
+        let totalFirstDose = testedData[0].firstdoseadministered
+        if (totalFirstDose===0 || totalFirstDose==="") {
+            totalFirstDose = testedData[1].firstdoseadministered
+        }
+        let totalsecondDose = testedData[0].seconddoseadministered
+        if (totalsecondDose===0 || totalsecondDose==="") {
+            totalsecondDose = testedData[1].seconddoseadministered
+        }
+        
+        let totalvaccineDoasesAdministred = testedData[0].totaldosesadministered
+        if (totalvaccineDoasesAdministred===0 || totalvaccineDoasesAdministred==="") {
+            totalvaccineDoasesAdministred = testedData[1].totaldosesadministered
+        }
+
+        let changeInfirstdose = totalFirstDose - testedData[1].firstdoseadministered
+        let changeinSecondDose = totalsecondDose - testedData[1].seconddoseadministered
+        let changeinTotalvaccinationdata = totalvaccineDoasesAdministred - testedData[1].totaldosesadministered
 
         let vaccinationdata = `
 
@@ -301,6 +314,6 @@ setTimeout(() => {
     let homepage = document.getElementById('homepage')
     waiting.style.display='none'
     homepage.style.display = 'block'
-}, 1000);
+}, 800);
 
 
