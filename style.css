@@ -727,3 +727,13 @@ ul li {
 
     }
 }
+@media (max-width:500px) {
+    #initialData {
+        width: 98%;
+    }
+    .totaldata{
+        width: 135px;
+        height: 135px;
+        font-size: 15px;
+    }
+}
