@@ -713,7 +713,7 @@ ul li {
 
 @media (max-width:500px) {
     #maincontent {
-        min-height: 50vh;
+        min-height: 80vh;
     }
 
     .greeting {
