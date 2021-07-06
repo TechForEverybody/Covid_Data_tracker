@@ -1,4 +1,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ubuntu+Condensed&display=swap');
 
 
 * {
@@ -8,6 +11,7 @@
     outline: none;
     text-decoration: none;
     list-style: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 #homepage {
@@ -341,6 +345,7 @@ tr:nth-child(even) {
     transform: rotate(-3deg) skewX(7deg);
     color: aliceblue;
     transition: all 0.5s;
+    box-shadow: 10px 50px 30px rgba(122, 122, 122, 0.738);
 }
 
 
@@ -641,5 +646,84 @@ tr:nth-child(even) {
 
     .resources img {
         margin: 15px;
+    }
+}
+
+
+#maincontent {
+    min-height: 100vh;
+    background: url('./about.jpg') no-repeat;
+    background-size: cover;
+    padding: 50px 0px;
+}
+
+.greeting {
+    width: 80%;
+    font-size: 60px;
+    font-family: 'Caveat', cursive;
+    position: relative;
+    top: 50px;
+    left: 10%;
+    color: aliceblue;
+}
+
+.greetingdesc {
+    width: 500px;
+    background-color: rgba(240, 248, 255, 0.381);
+    color: black;
+    padding: 30px 40px;
+    margin: 20px 0px;
+    font-size: 25px;
+    font-family: 'Yomogi', cursive;
+    border-radius: 50px;
+}
+
+#namespace {
+    font-family: 'Architects Daughter', cursive;
+    font-style: italic;
+    color: blanchedalmond
+}
+
+ul li {
+    list-style-type: disc;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+@media (max-width:1200px) {
+    #maincontent {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width:800px) {
+    #maincontent {
+        min-height: 50vh;
+    }
+
+    .greeting {
+        font-size: 35px;
+    }
+
+    .greetingdesc {
+        width: 400px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:500px) {
+    #maincontent {
+        min-height: 50vh;
+    }
+
+    .greeting {
+        font-size: 25px;
+    }
+
+    .greetingdesc {
+        width: 250px;
+        font-size: 12px;
+        padding: 30px 20px;
+
     }
 }

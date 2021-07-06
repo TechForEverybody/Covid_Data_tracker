@@ -1,5 +1,5 @@
 async function GetData() {
-    
+
     try {
         let indianformat = Intl.NumberFormat('en-IN');
         let response = await fetch('https://api.covid19india.org/data.json')
@@ -198,16 +198,16 @@ async function GetData() {
 
 
         let totalFirstDose = testedData[0].firstdoseadministered
-        if (totalFirstDose===0 || totalFirstDose==="") {
+        if (totalFirstDose === 0 || totalFirstDose === "") {
             totalFirstDose = testedData[1].firstdoseadministered
         }
         let totalsecondDose = testedData[0].seconddoseadministered
-        if (totalsecondDose===0 || totalsecondDose==="") {
+        if (totalsecondDose === 0 || totalsecondDose === "") {
             totalsecondDose = testedData[1].seconddoseadministered
         }
-        
+
         let totalvaccineDoasesAdministred = testedData[0].totaldosesadministered
-        if (totalvaccineDoasesAdministred===0 || totalvaccineDoasesAdministred==="") {
+        if (totalvaccineDoasesAdministred === 0 || totalvaccineDoasesAdministred === "") {
             totalvaccineDoasesAdministred = testedData[1].totaldosesadministered
         }
 
@@ -252,6 +252,30 @@ async function GetData() {
     }
 }
 GetData()
+
+document.onkeydown = function(e) {
+    if (event.keyCode == 123) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey) {
+        return false
+    }
+}
 
 function changePage(object) {
     let homepage = document.getElementById('homepage')
@@ -310,10 +334,24 @@ function toggleNavbar() {
 }
 
 setTimeout(() => {
-    let waiting=document.getElementById('waiting')
+    let waiting = document.getElementById('waiting')
     let homepage = document.getElementById('homepage')
-    waiting.style.display='none'
-    homepage.style.display = 'block'
-}, 800);
+    waiting.style.display = 'none'
+    homepage.style.display='block'
+}, 1000);
 
+function Typename() {
+    let i = 0;
 
+    function writeName() {
+        let name = "Shivkumar Chauhan"
+        let nameplace = document.getElementById('namespace')
+        if (i <= name.length) {
+            nameplace.innerHTML = name.slice(0, i)
+            i++;
+            setTimeout(writeName, 100)
+        }
+    }
+    writeName()
+}
+setInterval(Typename, 2500)
