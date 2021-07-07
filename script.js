@@ -388,7 +388,7 @@ setTimeout(() => {
     let homepage = document.getElementById('homepage')
     waiting.style.display = 'none'
     homepage.style.display='block'
-}, 1000);
+}, 1500);
 
 function Typename() {
     let i = 0;
