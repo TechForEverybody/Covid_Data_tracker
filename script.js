@@ -7,6 +7,7 @@ async function GetData() {
         // console.log(result);
         // document.write(result.statewise[1].state)
         let data = ` <table class="scrollableTable">
+        <thead>
     <tr>
         <th>State</th>
         <th>Total Cases</th>
@@ -17,32 +18,81 @@ async function GetData() {
         <!-- <th>New Recovered Today</th> -->
         <!-- <th>New Deaths</th> -->
         <th>Last Update Time</th>
-    </tr>`
+    </tr>
+    </thead>
+    `
         let totalData = ""
-
-        result.statewise.forEach(element => {
+        let statewisedata=result.statewise
+        let temp
+        console.log(statewisedata);
+        for (let index = 0; index < statewisedata.length; index++) {
+            for (let jendex = 0; jendex < statewisedata.length; jendex++) {
+                if ((statewisedata[index].confirmed-statewisedata[index].recovered-statewisedata[index].deaths)>(statewisedata[jendex].confirmed-statewisedata[jendex].recovered-statewisedata[jendex].deaths)) {
+                    temp=statewisedata[index]
+                    statewisedata[index]=statewisedata[jendex]
+                    statewisedata[jendex]=temp
+                }
+            }
+        }
+        statewisedata.forEach(element => {
             let deltaactive = element.deltaconfirmed - element.deltarecovered - element.deltadeaths
+            let deltaconfirmed=element.deltaconfirmed
+            let deltarecovered=element.deltarecovered
+            let deltadeaths=element.deltadeaths
+            if (deltaconfirmed==0 || deltaconfirmed=="") {
+                deltaconfirmed=""
+            }
+            else{
+                deltaconfirmed=`+ ${indianformat.format(deltaconfirmed)}`
+            }
+            if (deltarecovered==0 || deltarecovered=="") {
+                deltarecovered=""
+            }
+            else{
+                deltarecovered=`+ ${indianformat.format(deltarecovered)}`
+            }
+            if (deltaactive==0 || deltaactive=="") {
+                deltaactive=""
+            }
+            else{
+                if (deltaactive>0) {
+                    
+                    deltaactive=`+ ${indianformat.format(deltaactive)}    <i style="color:red;" class="fas fa-arrow-up"></i>`
+                } else {
+                    deltaactive=`${indianformat.format(deltaactive)}    <i class="fas fa-arrow-down"></i>`
+                    
+                }
+            }
+            if (deltadeaths==0 || deltadeaths=="") {
+                deltadeaths=""
+            }
+            else{
+                deltadeaths=`+ ${indianformat.format(deltadeaths)}`
+            }
+
+
+
             if (element.state !== "Total") {
                 data = data + `<tr>
         <td>${element.state}</td>
-        <td class="totalconfirmed">
-            <div class="newcounts">
-                + ${indianformat.format(element.deltaconfirmed)}
+        <td >
+            <div class="newcounts totalconfirmed">
+                ${deltaconfirmed}
             </div>${indianformat.format(element.confirmed)}
         </td>
-        <td class="active">
-            <div class="newcounts">
-                ${indianformat.format(deltaactive)}
+        <td >
+            <div class="newcounts active">
+                ${deltaactive}
             </div>${indianformat.format(element.active)}
         </td>
-        <td class="recovered">
-            <div class="newcounts">
-                + ${indianformat.format(element.deltarecovered)}
+        <td >
+            <div class="newcounts recovered">
+                ${deltarecovered}
             </div>${indianformat.format(element.recovered)}
         </td>
-        <td class="deaths">
-            <div class="newcounts">
-                + ${indianformat.format(element.deltadeaths)}
+        <td >
+            <div class="newcounts deaths">
+                ${deltadeaths}
             </div>${indianformat.format(element.deaths)}
         </td>
 
@@ -69,7 +119,7 @@ async function GetData() {
             Active
             <div class="counts">
                 <div class="newcounts">
-                    ${indianformat.format(deltaactive)}
+                    ${deltaactive}
                 </div>
                 <div class="totalcounts">
                     ${indianformat.format(element.active)}
@@ -338,7 +388,7 @@ setTimeout(() => {
     let homepage = document.getElementById('homepage')
     waiting.style.display = 'none'
     homepage.style.display='block'
-}, 1500);
+}, 1000);
 
 function Typename() {
     let i = 0;

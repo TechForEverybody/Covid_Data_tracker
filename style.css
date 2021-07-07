@@ -42,8 +42,8 @@
 
 .loaderspinner {
     margin: 20px;
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     border: 10px solid rgb(195, 195, 255);
     border-radius: 50%;
     animation: changecolor 5s ease-in-out 0s infinite;
@@ -59,15 +59,15 @@
     }
 
     40% {
-        background-color: coral;
-    }
-
-    60% {
         background-color: aquamarine;
     }
 
-    80% {
+    60% {
         background-color: burlywood;
+    }
+
+    80% {
+        background-color: coral;
     }
 
     100% {
@@ -102,6 +102,10 @@ a {
     grid-template-columns: 1fr 1fr;
     flex-wrap: wrap;
     align-items: center;
+}
+
+.title{
+    cursor: pointer;
 }
 
 #hideNavbar {
@@ -147,6 +151,9 @@ footer {
     white-space: nowrap;
 }
 
+thead{
+    background-color: #dbeeff;
+}
 table {
     border-collapse: collapse;
     width: 96%;
