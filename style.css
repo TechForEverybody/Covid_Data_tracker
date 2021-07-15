@@ -415,6 +415,20 @@ tr:nth-child(even) {
     margin: 30px;
 }
 
+#blink{
+    font-size: 70%;
+    color: white;
+    animation: blink 0.3s ease-in 0s infinite ;
+}
+@keyframes blink {
+    0%{
+        color: #00000000;
+    }
+    50%{
+        color: rgba(255, 255, 255, 0.658);
+    }
+}
+
 @media (max-width:1100px) {
 
     .header {
