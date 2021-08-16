@@ -2,7 +2,7 @@ async function GetData() {
 
     try {
         let indianformat = Intl.NumberFormat('en-IN');
-        let response = await fetch('https://api.covid19india.org/data.json')
+        let response = await fetch('https://data.covid19india.org/data.json')
         let result = await response.json()
         // console.log(result);
         // document.write(result.statewise[1].state)
