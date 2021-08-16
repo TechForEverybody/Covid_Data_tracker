@@ -2,7 +2,8 @@ async function GetData() {
 
     try {
         let indianformat = Intl.NumberFormat('en-IN');
-        let response = await fetch('https://api.covid19india.org/data.json')
+        let response = await fetch('https://data.covid19india.org/data.json')
+        // console.log(response);
         let result = await response.json()
         // console.log(result);
         // document.write(result.statewise[1].state)
@@ -243,8 +244,14 @@ async function GetData() {
         fromstartingcontainer.innerHTML = startingfromfirstData
 
         let testedData = result.tested.reverse()
+
         let totalcovidsamplesTested = testedData[0].totalsamplestested
         let changeInSampleTested = testedData[0].totalsamplestested - testedData[1].totalsamplestested
+        if (totalcovidsamplesTested===0 || totalcovidsamplesTested==="") {
+            totalcovidsamplesTested = testedData[1].totalsamplestested
+            changeInSampleTested = testedData[1].totalsamplestested - testedData[2].totalsamplestested
+
+        }
 
 
         let totalFirstDose = testedData[0].firstdoseadministered
@@ -303,29 +310,29 @@ async function GetData() {
 }
 GetData()
 
-document.onkeydown = function(e) {
-    if (e.keyCode == 123) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
-        return false;
-    }
-    if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
-        return false;
-    }
-    if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
-        return false;
-    }
-    if (e.ctrlKey) {
-        return false
-    }
-}
+// document.onkeydown = function(e) {
+//     if (e.keyCode == 123) {
+//         return false;
+//     }
+//     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
+//         return false;
+//     }
+//     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
+//         return false;
+//     }
+//     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
+//         return false;
+//     }
+//     if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
+//         return false;
+//     }
+//     if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
+//         return false;
+//     }
+//     if (e.ctrlKey) {
+//         return false
+//     }
+// }
 
 function changePage(object) {
     let homepage = document.getElementById('homepage')
