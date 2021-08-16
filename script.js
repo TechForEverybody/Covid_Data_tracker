@@ -1,5 +1,4 @@
 async function GetData() {
-
     try {
         let indianformat = Intl.NumberFormat('en-IN');
         let response = await fetch('https://data.covid19india.org/data.json')
@@ -70,8 +69,6 @@ async function GetData() {
             else{
                 deltadeaths=`+ ${indianformat.format(deltadeaths)}`
             }
-
-
 
             if (element.state !== "Total") {
                 data = data + `<tr>
@@ -250,7 +247,6 @@ async function GetData() {
         if (totalcovidsamplesTested===0 || totalcovidsamplesTested==="") {
             totalcovidsamplesTested = testedData[1].totalsamplestested
             changeInSampleTested = testedData[1].totalsamplestested - testedData[2].totalsamplestested
-
         }
 
 
