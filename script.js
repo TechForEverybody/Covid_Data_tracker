@@ -52,7 +52,7 @@ async function GetData() {
         result = Object.entries(result)
         // console.log(result);
         // Sortthetable("decreased")
-        Sortthetable("activecas es")
+        Sortthetable("activecases")
 
 
 
