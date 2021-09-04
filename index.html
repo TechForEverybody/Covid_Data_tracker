@@ -9,9 +9,12 @@
     <title>Covid 19 Data thacker</title>
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<!-- <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false"> -->
+
+<body>
     <header class="header">
         <div class="navbaroption">
             <div class="title" onclick="changePage('homepage')">Covid 19 India Statistics</div>
@@ -19,8 +22,8 @@
         </div>
         <div class="navbar" id="navbar">
             <i id="hideNavbar" onclick="toggleNavbar()" class="fas fa-times"></i>
-            <a onclick="changePage('fromstartingData')">Timeline</a>
-            <a onclick="changePage('OverallData')">Vaccination</a>
+            <a onclick="changePage('state-data')">State-Wise Data</a>
+            <a onclick="changePage('OverallData')">Vaccine-Search</a>
             <a onclick="changePage('about')">About Developer</a>
         </div>
     </header>
@@ -32,27 +35,67 @@
     </div>
     <div id="homepage">
         <div id="totaldetails"></div>
+        <div id="maindatacontainer"></div>
         <div id="root"></div>
         <div class="resources">
             <h1>Resources</h1>
             <img src="./Covid19_ORG.PNG" alt="COVID_19_ORG">
-        </div>
-    </div>
-    <div id="fromstartingData">
-        <h1 style="text-align: center;padding:10px">Covid-19 India Timeline</h1>
-        <div id="fromstartingcontainer"></div>
-    </div>
-    <div id="OverallData">
-        <div id="maindatacontainer"></div>
-        <div class="getvaccinationcentersdata">
-
-        </div>
-        <div class="resources">
-            <h1>Resources</h1>
             <img src="./PIB.PNG" alt="PIB">
             <img src="./ICMR.PNG" alt="ICMR">
         </div>
     </div>
+
+
+
+    <div id="fromstartingData">
+        <h1 style="text-align: center;">Specific State Data Search</h1>
+        <div class="inputstatename">
+            <label for="state">State Name : </label>
+            <select name="state" id="state" onchange="getspecificstatedata()">
+                <option value="Maharashtra">Maharashtra</option>
+            </select>
+        </div>
+        <div id="statedescription">
+            <div id="statedetails">
+                <h1> 🌐 Please Choose State To Get Details 🌐 </h1>
+            </div>
+        </div>
+        <div id="districtlisttable"></div>
+    </div>
+
+
+
+    <div id="OverallData">
+        <div class="pincodeentry">
+            <form onsubmit="getvaccinationdata(event)">
+                <input type="number" name="pincode" id="pincode" minlength="6" maxlength="6" pattern="" required
+                    placeholder="Enter Pincode">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+        <div id="getvaccinationcentersdata">
+            <div class="vaccinationplacecontainer">
+                <h1>Paid</h1>
+                <h3>Center ID : </h3>
+                <h3>Center Name : </h3>
+                <h3>Address : </h3>
+                <h3>Time Slot : </h3>
+                <div class="vaccineplace">
+                    <h2>Covishield</h2>
+                    <h4>Date : </h4>
+                    <h4>Minimun Age Range : </h4>
+                    <div>
+                        <span>Dose-1 : </span>
+                        <span>Dose-2 : </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
     <div id="about">
         <div id="maincontent">
             <div class="greeting">

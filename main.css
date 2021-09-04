@@ -1,0 +1,25 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ubuntu+Condensed&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+.marginleft-50px{
+    margin-left: 50px;
+}
+.display-block{
+    display: block;
+}
+body{
+    background: url("https://images.unsplash.com/photo-1482148454461-aaedae4b30bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80") fixed;
+    background-size: cover;
+}
