@@ -63,6 +63,7 @@ async function GetData() {
         })
         let statedata = document.getElementById('state')
         statedata.innerHTML = stateoptions
+        hideloder()
     } catch (error) {
         console.log(error);
     }
