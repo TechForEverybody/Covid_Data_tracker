@@ -53,12 +53,8 @@ async function GetData() {
         // console.log(result);
         // Sortthetable("decreased")
         Sortthetable("activecases")
-
-
-
         let stateoptions = `
         <option value="" >Please Choose Option</option>
-        
         `
         Object.keys(statelist).forEach(key => {
             stateoptions = stateoptions + `
@@ -97,12 +93,10 @@ function Fillthetable(statedata) {
         </thead>
         `
     let totalData = ""
-
     statedata.forEach((value, index) => {
         // if (result[index]) {
         // console.log(index+" = "+result[index]);
         // }
-
         let statedata = {
             statecode: value[0],
             deltaconfirmed: value[1].delta,
@@ -112,12 +106,10 @@ function Fillthetable(statedata) {
         // console.log(statedata);
         getTableRow(statedata)
     })
-
     function getTableRow(object) {
         // console.log(object);
         // console.log(object.metadata);
         let deltaactive, deltarecovered, deltadecreased, deltaconfirmed, deltatested, deltaparial, deltafully
-
         if (object.deltaconfirmed) {
             if (object.deltaconfirmed.confirmed) {
                 if (object.deltaconfirmed.recovered) {
@@ -171,9 +163,7 @@ function Fillthetable(statedata) {
         if (object.confirmed.other) {
             totalactive = totalactive - object.confirmed.other
         }
-
         if (object.statecode === "TT") {
-
             totalData = totalData + `
                         <div class="lastupdatedate">
                             Last Updated at : ${getDate(object.metadata.last_updated).slice(0,25)}
@@ -255,13 +245,11 @@ function Fillthetable(statedata) {
                                 </div>
                             </div>
                         </div>
-                
                         `
         } else {
-
             data = data + `<tr onclick="dogglebetweenhomeandstate('${object.statecode}')">
-                    <td >
-                    ${getStateName(object.statecode)}</td>
+                    <th >
+                    ${getStateName(object.statecode)}</th>
                     <td >
                         <div class="newcounts totalconfirmed">
                             ${deltaconfirmed}
@@ -303,12 +291,7 @@ function Fillthetable(statedata) {
                 </tr>
                     `
         }
-
     }
-
-
-
-
     data = data + " </table>"
     //         // console.log(data);
     let totaldetails = document.getElementById('totaldetails')
@@ -321,9 +304,6 @@ function Fillthetable(statedata) {
 
 function getStateName(object) {
     // console.log(object);
-
-
-
     let statename = object
     Object.keys(statelist).forEach(index => {
         // console.log(index);
@@ -527,11 +507,9 @@ async function Sortthetable(type) {
         sort = 1
     }
     // console.log(type);
-
     // console.log(length);
     // console.log(result);
     Fillthetable(result)
-
 }
 
 function getspecificstatedata() {
@@ -559,7 +537,6 @@ function getspecificstatedata() {
         // deceased = statetabledata[1].total.deceased
         // tested = statetabledata[1].total.tested
         active = statetabledata[1].total.confirmed - statetabledata[1].total.recovered - statetabledata[1].total.deceased - (statetabledata[1].total.other ? (statetabledata[1].total.other) : (0))
-
         // console.log(statetabledata[1].delta);
         if (statetabledata[1].delta) {
             deltaconfirmed = statetabledata[1].delta.confirmed ? (`
@@ -610,19 +587,15 @@ function getspecificstatedata() {
             deltaparial = ""
             deltafully = ""
         }
-
-
         // console.log(deltaconfirmed);
         // console.log(deltarecovered);
         // console.log(deltadeceased);
         // console.log(deltatested);
-
         weekconfirmed = statetabledata[1].delta7.confirmed ? (statetabledata[1].delta7.confirmed) : (0)
         weekrecovered = statetabledata[1].delta7.recovered ? (statetabledata[1].delta7.recovered) : (0)
         weekdeceased = statetabledata[1].delta7.deceased ? (statetabledata[1].delta7.deceased) : (0)
         weekpartial = statetabledata[1].delta7.vaccinated1 ? (statetabledata[1].delta7.vaccinated1) : (0)
         weekfully = statetabledata[1].delta7.vaccinated2 ? (statetabledata[1].delta7.vaccinated2) : (0)
-
         let statedetails = document.getElementById('statedetails')
         let stateinitialdata = ``
         stateinitialdata = stateinitialdata + `
@@ -646,9 +619,6 @@ function getspecificstatedata() {
             <p>Total tested Cases : ${indianformat.format(statetabledata[1].total.tested)}
                 ${deltatested}
             </p>
-
-
-
             <h3 style="text-align:center">Vaccination Details</h3>
             <p>Total 1st Dose Vaccinated : ${indianformat.format(statetabledata[1].total.vaccinated1)}
             ${deltaparial}
@@ -662,19 +632,14 @@ function getspecificstatedata() {
             <p>Last 7 Days Death Cases : ${indianformat.format(weekdeceased)} </p>
             <p>Last 7 Days 1st Dose Vaccinated : ${indianformat.format(weekpartial)} </p>
             <p>Last 7 Days 2nd DOse Vaccinated : ${indianformat.format(weekfully)} </p>
-        
         `
         statedetails.innerHTML = stateinitialdata
-
-
-
         // console.log(statetabledata[1]);
         // districtdata=statetabledata[1]
         districtdata = Object.entries(statetabledata[1].districts)
         Getspecificstatetable(districtdata, 'districtlisttable')
     }
 }
-
 
 function Getspecificstatetable(object, id) {
     // console.log(object);
@@ -687,8 +652,8 @@ function Getspecificstatetable(object, id) {
                 <th onclick="Sortdistrictthetable('activecases')">Total Active  <i class="fas fa-sort"></i></th>
                 <th onclick="Sortdistrictthetable('recovered')">Total Recovered  <i class="fas fa-sort"></i></th>
                 <th onclick="Sortdistrictthetable('deceased')">Total Deaths  <i class="fas fa-sort"></i></th>
-                <th>Tested  </th>
-                <th>Partialy Vaccinated  </th>
+                <!--<th>Tested  </th>-->
+                <th>Dose-1 Vaccinated  </th>
                 <th>Fully Vaccinated  </th>
                 <th>Population  </th>
                 <!-- <th>New Cases Today</th> -->
@@ -782,11 +747,13 @@ function Getspecificstatetable(object, id) {
                 ${deltadeceased}
             </div>${deceased}
         </td>
+        <!--
         <td >
             <div class="newcounts">
                 ${deltatested}
             </div>${tested}
         </td>
+        -->
         <td >
             <div class="newcounts">
                 ${deltavaccinated1}
@@ -805,10 +772,7 @@ function Getspecificstatetable(object, id) {
     // console.log(data);
     let elementid = document.getElementById(id)
     elementid.innerHTML = data
-
-
 }
-
 
 async function Sortdistrictthetable(type) {
     // console.log(sort);
@@ -908,12 +872,10 @@ async function Sortdistrictthetable(type) {
         sort = 1
     }
     Getspecificstatetable(districtdata, 'districtlisttable')
-
 }
 
-
 function dogglebetweenhomeandstate(object) {
-    console.log(object);
+    // console.log(object);
     let state = document.getElementById('state')
     state.value = object
     getspecificstatedata()
@@ -923,7 +885,6 @@ function dogglebetweenhomeandstate(object) {
     fromstartingData.style.display = 'block'
     window.scrollTo(0, 0)
 }
-
 
 async function getvaccinationdata(event) {
     event.preventDefault()
@@ -935,33 +896,33 @@ async function getvaccinationdata(event) {
     let year = datetime.getFullYear()
     let vaccinationdataContainerdata = ``
     if (pincode.length === 6) {
-        console.log(pincode);
+        // console.log(pincode);
         try {
             let response = await fetch(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${pincode}&date=${date}-${month+1}-${year}`)
             // console.log(response);
             let centerdata = await response.json()
-            console.log(centerdata);
+            // console.log(centerdata);
             if (centerdata.centers.length > 0) {
                 centerdata.centers.forEach((value, index) => {
-                    console.log(value);
+                    // console.log(value);
                     vaccinationdataContainerdata = vaccinationdataContainerdata + `
     <div class="vaccinationplacecontainer"> 
                     <h1>${value.fee_type}</h1>
-                    <h3>Center ID :  ${value.center_id} </h3>
-                    <h3>Center Name : ${value.name} </h3>
-                    <h3>Address : ${value.address} </h3>
-                    <h3>Time Slot : ${value.from} to ${value.to}</h3>
+                    <h4>Center ID :  ${value.center_id} </h4>
+                    <h4>Center Name : ${value.name} </h4>
+                    <h4>Address : ${value.address} , ${value.block_name} , ${value.district_name} , ${value.state_name} </h4>
+                    <h4>Time Slot : ${value.from} to ${value.to}</h4>
                     `
                     value.sessions.forEach((value,index)=>{
-                        console.log(value);
+                        // console.log(value);
                         vaccinationdataContainerdata=vaccinationdataContainerdata+`
                         <div class="vaccineplace">
-                            <h2>${value.vaccine}</h2>
-                            <h4>Date :  ${value.date} </h4>
-                            <h4>Minimun Age Range : ${value.min_age_limit} </h4>
+                            <h3>${value.vaccine}</h3>
+                            <h5>Date :  ${value.date} </h5>
+                            <h5>Minimun Age Range : ${value.min_age_limit} </h5>
                             <div>
-                                <span>Dose-1 : ${value.available_capacity_dose1} </span>
-                                <span>Dose-2 : ${value.available_capacity_dose2} </span>
+                                <span>Dose-1 : <span class="desecount"> ${value.available_capacity_dose1}</span> </span>
+                                <span>Dose-2 : <span class="desecount"> ${value.available_capacity_dose2}</span> </span>
                             </div>
                         </div>
                         `
@@ -972,60 +933,46 @@ async function getvaccinationdata(event) {
                 let getvaccinationcentersdata=document.getElementById('getvaccinationcentersdata')
                 getvaccinationcentersdata.innerHTML=vaccinationdataContainerdata
             } else {
+                let getvaccinationcentersdata=document.getElementById('getvaccinationcentersdata')
+                getvaccinationcentersdata.innerHTML=`
+                    <div id="pleaseenterpincodemessage">
+                        <h1 style='text-align:center'> 🚃 We haven't Find any center  🚃</h1>
+                        <h1 style='text-align:center'> 🚃 with respect to your entered pincode  🚃</h1>
+                        <h1 style='text-align:center'> 🚃 Please Try With Other Pincode  🚃</h1>
+                    </div>
+                `
             }
         } catch (error) {
             console.log(error);
         }
-
-
-
     } else {
         window.alert('please enter only six digit pincode')
     }
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// document.onkeydown = function(e) {
-//     if (e.keyCode == 123) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
-//         return false;
-//     }
-//     if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
-//         return false;
-//     }
-//     if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
-//         return false;
-//     }
-//     if (e.ctrlKey) {
-//         return false
-//     }
-// }
+document.onkeydown = function(e) {
+    if (e.keyCode == 123) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey) {
+        return false
+    }
+}
 
 function changePage(object) {
     let homepage = document.getElementById('homepage')
@@ -1039,18 +986,16 @@ function changePage(object) {
         fromstartingData.style.display = 'none'
         OverallData.style.display = 'none'
         about.style.display = 'none'
-
-        if (screen.width < 600) {
+        if (screen.width < 768) {
             navbar.style.display = 'none'
         }
-
     } else if (object === 'state-data') {
         homepage.style.display = 'none'
         fromstartingData.style.display = 'block'
         OverallData.style.display = 'none'
         about.style.display = 'none'
 
-        if (screen.width < 600) {
+        if (screen.width < 768) {
             navbar.style.display = 'none'
         }
     } else if (object === 'OverallData') {
@@ -1059,7 +1004,7 @@ function changePage(object) {
         OverallData.style.display = 'block'
         about.style.display = 'none'
 
-        if (screen.width < 600) {
+        if (screen.width < 768) {
             navbar.style.display = 'none'
         }
     } else if (object === 'about') {
@@ -1067,7 +1012,7 @@ function changePage(object) {
         fromstartingData.style.display = 'none'
         OverallData.style.display = 'none'
         about.style.display = 'block'
-        if (screen.width < 600) {
+        if (screen.width < 768) {
             navbar.style.display = 'none'
         }
     }
@@ -1082,18 +1027,15 @@ function toggleNavbar() {
     }
 }
 
-
-
-// setTimeout(() => {
-//     let waiting = document.getElementById('waiting')
-//     let homepage = document.getElementById('homepage')
-//     waiting.style.display = 'none'
-//     homepage.style.display = 'block'
-// }, 00);
+function hideloder() {
+    let waiting = document.getElementById('waiting')
+    let homepage = document.getElementById('homepage')
+    waiting.style.display = 'none'
+    homepage.style.display = 'block'
+}
 
 function Typename() {
     let i = 0;
-
     function writeName() {
         let name = "Shivkumar Chauhan"
         let nameplace = document.getElementById('namespace')
