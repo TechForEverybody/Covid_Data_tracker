@@ -107,6 +107,7 @@ function Fillthetable(statedata) {
         // console.log(statedata);
         getTableRow(statedata)
     })
+
     function getTableRow(object) {
         // console.log(object);
         // console.log(object.metadata);
@@ -914,9 +915,25 @@ async function getvaccinationdata(event) {
                     <h4>Address : ${value.address} , ${value.block_name} , ${value.district_name} , ${value.state_name} </h4>
                     <h4>Time Slot : ${value.from} to ${value.to}</h4>
                     `
-                    value.sessions.forEach((value,index)=>{
-                        // console.log(value);
+                    if (value.fee_type!=="Free") {
                         vaccinationdataContainerdata=vaccinationdataContainerdata+`
+                        <div class="fees">
+                        `
+                        value.vaccine_fees.forEach((value, index) => {
+                            vaccinationdataContainerdata = vaccinationdataContainerdata + `
+                                <h3> ${value.vaccine} : <sup>₹</sup>${value.fee}  </h3>
+                                `
+                        })
+                        vaccinationdataContainerdata = vaccinationdataContainerdata + `
+                            </div>
+                        `
+                    }
+                    else{
+
+                    }
+                    value.sessions.forEach((value, index) => {
+                        // console.log(value);
+                        vaccinationdataContainerdata = vaccinationdataContainerdata + `
                         <div class="vaccineplace">
                             <h3>${value.vaccine}</h3>
                             <h5>Date :  ${value.date} </h5>
@@ -929,13 +946,13 @@ async function getvaccinationdata(event) {
                         `
                     })
                     // vaccinationdataContainerdata=vaccinationdataContainerdata+`</div>`
-                    vaccinationdataContainerdata=vaccinationdataContainerdata+`</div>`
+                    vaccinationdataContainerdata = vaccinationdataContainerdata + `</div>`
                 })
-                let getvaccinationcentersdata=document.getElementById('getvaccinationcentersdata')
-                getvaccinationcentersdata.innerHTML=vaccinationdataContainerdata
+                let getvaccinationcentersdata = document.getElementById('getvaccinationcentersdata')
+                getvaccinationcentersdata.innerHTML = vaccinationdataContainerdata
             } else {
-                let getvaccinationcentersdata=document.getElementById('getvaccinationcentersdata')
-                getvaccinationcentersdata.innerHTML=`
+                let getvaccinationcentersdata = document.getElementById('getvaccinationcentersdata')
+                getvaccinationcentersdata.innerHTML = `
                     <div id="pleaseenterpincodemessage">
                         <h1 style='text-align:center'> 🚃 We haven't Find any center  🚃</h1>
                         <h1 style='text-align:center'> 🚃 with respect to your entered pincode  🚃</h1>
@@ -951,7 +968,7 @@ async function getvaccinationdata(event) {
     }
 }
 
-document.onkeydown = function(e) {
+document.onkeydown = function (e) {
     if (e.keyCode == 123) {
         return false;
     }
@@ -1037,6 +1054,7 @@ function hideloder() {
 
 function Typename() {
     let i = 0;
+
     function writeName() {
         let name = "Shivkumar Chauhan"
         let nameplace = document.getElementById('namespace')
