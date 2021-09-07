@@ -649,7 +649,7 @@ function Getspecificstatetable(object, id) {
     <table class="scrollableTable" cellspacing="3px">
         <thead>
             <tr>
-                <th>State</th>
+                <th>Districts</th>
                 <th onclick="Sortdistrictthetable('confirmed')">Total Cases  <i class="fas fa-sort"></i></th>
                 <th onclick="Sortdistrictthetable('activecases')">Total Active  <i class="fas fa-sort"></i></th>
                 <th onclick="Sortdistrictthetable('recovered')">Total Recovered  <i class="fas fa-sort"></i></th>
