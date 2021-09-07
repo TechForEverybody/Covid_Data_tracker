@@ -1067,3 +1067,6 @@ function Typename() {
     writeName()
 }
 setInterval(Typename, 2500)
+document.addEventListener('oncontextmenu',()=>{
+    return false
+})
