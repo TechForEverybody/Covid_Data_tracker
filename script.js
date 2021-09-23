@@ -889,7 +889,9 @@ function dogglebetweenhomeandstate(object) {
 }
 
 async function getvaccinationdata(event) {
-    event.preventDefault()
+    if (event) {
+        event.preventDefault()
+    }
     // console.log(event);
     let pincode = document.getElementById('pincode').value
     let datetime = new Date()
@@ -967,7 +969,6 @@ async function getvaccinationdata(event) {
         window.alert('please enter only six digit pincode')
     }
 }
-
 document.onkeydown = function (e) {
     if (e.keyCode == 123) {
         return false;
@@ -1021,6 +1022,7 @@ function changePage(object) {
         fromstartingData.style.display = 'none'
         OverallData.style.display = 'block'
         about.style.display = 'none'
+        getvaccinationdata()
 
         if (screen.width < 768) {
             navbar.style.display = 'none'
