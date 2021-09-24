@@ -910,7 +910,7 @@ async function getvaccinationdata(event) {
                 centerdata.centers.forEach((value, index) => {
                     // console.log(value);
                     vaccinationdataContainerdata = vaccinationdataContainerdata + `
-    <div class="vaccinationplacecontainer"> 
+                    <div class="vaccinationplacecontainer"> 
                     <h1>${value.fee_type}</h1>
                     <h4>Center ID :  ${value.center_id} </h4>
                     <h4>Center Name : ${value.name} </h4>
